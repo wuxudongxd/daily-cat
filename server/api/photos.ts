@@ -3,7 +3,7 @@ import { defineEventHandler, createError } from "h3";
 
 export default defineEventHandler(async (event: H3Event) => {
   try {
-    const page = Math.floor(Math.random() * 100) + 1;
+    const page = Math.floor(Math.random() * 500) + 1;
 
     const response = await fetch(
       "https://api.pexels.com/v1/search?" +
@@ -14,6 +14,8 @@ export default defineEventHandler(async (event: H3Event) => {
           orientation: "landscape",
           size: "medium", // 默认请求中等尺寸
           locale: "zh-CN",
+          min_width: "1000", // 最小宽度
+          min_height: "800", // 最小高度
         }),
       {
         headers: {
