@@ -2,13 +2,17 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
-  modules: [
-    '@nuxtjs/tailwindcss'
-  ],
+  modules: ["@nuxtjs/tailwindcss"],
 
   runtimeConfig: {
-    pexelsApiKey: process.env.PEXELS_API_KEY
+    pexelsApiKey: process.env.PEXELS_API_KEY,
   },
 
-  compatibilityDate: '2025-02-22'
-})
+  app: {
+    head: {
+      link: [{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
+    },
+  },
+
+  compatibilityDate: "2025-02-22",
+});
