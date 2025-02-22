@@ -38,7 +38,6 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { useFetch } from 'nuxt/app'
 
 interface Photo {
   id: number;
@@ -55,7 +54,6 @@ interface ApiResponse {
   photo: Photo;
 }
 
-// 添加一个变量来控制图片过渡
 const imageLoaded = ref(false)
 
 const { data, pending, error, refresh } = await useFetch<ApiResponse>('/api/photos', {
@@ -69,7 +67,6 @@ const refreshPhoto = () => {
   refresh()
 }
 
-// 图片加载完成的处理函数
 const handleImageLoad = () => {
   imageLoaded.value = true
 }

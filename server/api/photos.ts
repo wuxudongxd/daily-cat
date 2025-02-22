@@ -1,10 +1,7 @@
 import type { H3Event } from "h3";
 import { defineEventHandler, createError } from "h3";
-import { useRuntimeConfig } from "nuxt/app";
 
 export default defineEventHandler(async (event: H3Event) => {
-  const config = useRuntimeConfig();
-
   try {
     const page = Math.floor(Math.random() * 100) + 1;
 
@@ -20,7 +17,7 @@ export default defineEventHandler(async (event: H3Event) => {
         }),
       {
         headers: {
-          Authorization: config.pexelsApiKey as string,
+          Authorization: process.env.PEXELS_API_KEY as string,
         },
       }
     );
